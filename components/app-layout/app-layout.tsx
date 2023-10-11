@@ -84,7 +84,7 @@ export class AppLayout extends HTMLElement {
               <a
                 className={current === 'table' ? 'active' : undefined}
                 href={`${parent}/table/`}
-                data-tooltip="Route Name"
+                data-tooltip="Table"
                 data-placement="right"
               >
                 {icon(TableIcon)}
