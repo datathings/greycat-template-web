@@ -20,6 +20,7 @@ cache:
 test:
   stage: test
   script:
+    - curl -fsSL https://get.greycat.io/install.sh | bash
     - greycat test
 
 build:
