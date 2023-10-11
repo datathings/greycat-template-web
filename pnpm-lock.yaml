@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@greycat/web':
-    specifier: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.49-dev.tgz
-    version: '@get.greycat.io/files/sdk/web/dev/6.3/6.3.49-dev.tgz'
+    specifier: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz
+    version: '@get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz'
   '@mapbox/mapbox-gl-rtl-text':
     specifier: 0.2.3
     version: 0.2.3(mapbox-gl@1.13.3)
@@ -1963,20 +1963,20 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  '@get.greycat.io/files/sdk/js/dev/6.3/6.3.18-dev.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/js/dev/6.3/6.3.18-dev.tgz}
+  '@get.greycat.io/files/sdk/js/dev/6.3/6.3.20-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/js/dev/6.3/6.3.20-dev.tgz}
     name: '@greycat/sdk'
-    version: 6.3.18-dev
+    version: 6.3.20-dev
     engines: {node: '>=18'}
     dev: false
 
-  '@get.greycat.io/files/sdk/web/dev/6.3/6.3.49-dev.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.49-dev.tgz}
+  '@get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz}
     name: '@greycat/web'
-    version: 6.3.49-dev
+    version: 6.3.51-dev
     engines: {node: '>=16.13.0'}
     dependencies:
-      '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.3/6.3.18-dev.tgz'
+      '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.3/6.3.20-dev.tgz'
       d3: 7.8.5
       maplibre-gl: 2.4.0
     dev: false
