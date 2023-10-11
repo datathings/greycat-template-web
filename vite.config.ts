@@ -31,7 +31,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     emptyOutDir: true,
     outDir: resolve(__dirname, 'dist'),
-    // minify: false,
+    cssMinify: 'lightningcss',
     rollupOptions: {
       input: {
         // list your entrypoints in 'input'
