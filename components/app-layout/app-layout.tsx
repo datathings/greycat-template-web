@@ -3,10 +3,12 @@ import LogoutIcon from '@tabler/icons/logout.svg?raw';
 import BrightnessUpIcon from '@tabler/icons/brightness-up.svg?raw';
 import MoonIcon from '@tabler/icons/moon.svg?raw';
 import HomeIcon from '@tabler/icons/home.svg?raw';
+import TableIcon from '@tabler/icons/table.svg?raw';
 import LogoIcon from './logo.svg?raw';
 import { icon } from '../../common/utils';
 import { APP_LAYOUT_THEME } from '../../common/constants';
 import './app-layout.css';
+import { projectlib } from '../../common/project';
 
 export class AppLayout extends HTMLElement {
   readonly main = document.createElement('main');
@@ -78,6 +80,17 @@ export class AppLayout extends HTMLElement {
                 {icon(HomeIcon)}
               </a>
             </li>
+            <li>
+              <a
+                className={current === 'table' ? 'active' : undefined}
+                href={`${parent}/table/`}
+                data-tooltip="Route Name"
+                data-placement="right"
+              >
+                {icon(TableIcon)}
+              </a>
+            </li>
+            {/* Example menu entry: */}
             {/* <li>
               <a
                 className={current === 'routeName' ? 'active' : undefined}
@@ -132,6 +145,7 @@ export class AppLayout extends HTMLElement {
     // Nothing's enforced of course
     greycat.default = await init({
       unauthorizedHandler: () => location.assign(`${this.parent}/login.html`),
+      libraries: [projectlib],
       ...opts,
     });
   }

@@ -10,7 +10,7 @@
     "lint": "pnpm lint:app && pnpm lint:server",
     "lint:app": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:server": "greycat-lang lint",
-    "gen": "codegen --target=ts --lib=project project.gcl common/project",
+    "gen": "greycat codegen common/project",
     "test": "greycat test"
   },
   "dependencies": {
