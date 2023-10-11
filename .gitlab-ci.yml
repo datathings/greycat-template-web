@@ -3,10 +3,9 @@ image: oci.datathings.com/greycat/build/js:1.0.8-main
 variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: "0"
-  GREYCAT_CORE_VERSION: "6.3.76-dev"
   GREYCAT_CORE_MAJOR: "6.3"
+  GREYCAT_CORE_VERSION: "6.3.76-dev"
   GREYCAT_CORE_BRANCH: "dev"
-
 
 stages:
   - build
@@ -23,10 +22,7 @@ cache:
 build:
   stage: build
   script:
-    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_CORE_BRANCH}/x86-linux/${GREYCAT_CORE_MAJOR}/${GREYCAT_CORE_VERSION}.zip -o tmp.zip && unzip -d "$CI_PROJECT_DIR" -oqq tmp.zip && rm tmp.zip
-    - greycat test
-    - pnpm install
-    - pnpm build
+    - ./build.sh ${GREYCAT_CORE_BRANCH} ${GREYCAT_CORE_MAJOR} ${GREYCAT_CODE_BRANCH}
   artifacts:
     when: on_success
     expire_in: '30 days'
