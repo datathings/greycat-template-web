@@ -13,6 +13,7 @@ PATH="$PATH:./greycat/bin"
 greycat test
 
 pnpm install
+pnpm lint
 pnpm build
 
 # cleanup
