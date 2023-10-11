@@ -4,6 +4,7 @@ import BrightnessUpIcon from '@tabler/icons/brightness-up.svg?raw';
 import MoonIcon from '@tabler/icons/moon.svg?raw';
 import HomeIcon from '@tabler/icons/home.svg?raw';
 import TableIcon from '@tabler/icons/table.svg?raw';
+import InfoSquareRoundedIcon from '@tabler/icons/info-square-rounded.svg?raw';
 import LogoIcon from './logo.svg?raw';
 import { icon } from '../../common/utils';
 import { APP_LAYOUT_THEME } from '../../common/constants';
@@ -101,6 +102,16 @@ export class AppLayout extends HTMLElement {
                 {icon(RouteIcon)}
               </a>
             </li> */}
+            <li>
+              <a
+                className={current === 'about' ? 'active' : undefined}
+                href={`${parent}/about/`}
+                data-tooltip="About"
+                data-placement="right"
+              >
+                {icon(InfoSquareRoundedIcon)}
+              </a>
+            </li>
           </ul>
 
           <ul>

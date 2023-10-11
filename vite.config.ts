@@ -40,6 +40,7 @@ export default defineConfig(({ mode }) => ({
         // (see. https://vitejs.dev/guide/build.html#multi-page-app)
         index: resolve(__dirname, 'pages/index.html'),
         table: resolve(__dirname, 'pages/table/index.html'),
+        about: resolve(__dirname, 'pages/about/index.html'),
       },
     },
   },
