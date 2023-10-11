@@ -22,7 +22,7 @@ cache:
 build:
   stage: build
   script:
-    - ./build.sh ${GREYCAT_CORE_BRANCH} ${GREYCAT_CORE_MAJOR} ${GREYCAT_CODE_BRANCH}
+    - ./build.sh ${GREYCAT_CORE_BRANCH} ${GREYCAT_CORE_MAJOR} ${GREYCAT_CORE_BRANCH}
   artifacts:
     when: on_success
     expire_in: '30 days'
