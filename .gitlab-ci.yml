@@ -3,9 +3,10 @@ image: oci.datathings.com/greycat/build/js:1.0.8-main
 variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: "0"
+  GREYCAT_CORE_BRANCH: "dev"
   GREYCAT_CORE_MAJOR: "6.3"
   GREYCAT_CORE_VERSION: "6.3.76-dev"
-  GREYCAT_CORE_BRANCH: "dev"
+  GREYCAT_LANG_VERSION: "6.3.5-dev"
 
 stages:
   - build
@@ -22,7 +23,7 @@ cache:
 build:
   stage: build
   script:
-    - ./build.sh ${GREYCAT_CORE_BRANCH} ${GREYCAT_CORE_MAJOR} ${GREYCAT_CORE_VERSION}
+    - ./build.sh ${GREYCAT_CORE_BRANCH} ${GREYCAT_CORE_MAJOR} ${GREYCAT_CORE_VERSION} ${GREYCAT_LANG_VERSION}
   artifacts:
     when: on_success
     expire_in: '30 days'
