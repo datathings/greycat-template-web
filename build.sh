@@ -14,7 +14,8 @@ curl -qsL https://get.greycat.io/files/core/${GREYCAT_CORE_BRANCH}/x86-linux/${G
 curl -qsL https://get.greycat.io/files/lang/${GREYCAT_CORE_BRANCH}/${GREYCAT_CORE_MAJOR}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip &&
   unzip -d /tmp/greycat -oqq tmp.zip &&
   rm tmp.zip
-PATH="$PATH:/tmp/greycat/bin"
+GREYCAT_HOME="/tmp/greycat"
+PATH="$PATH:$GREYCAT_HOME/bin"
 
 pnpm install
 pnpm lint
