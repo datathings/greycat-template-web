@@ -19,10 +19,4 @@ module.exports = {
     '@typescript-eslint/no-extra-non-null-assertion': 'error',
     '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
   },
-  ignorePatterns: ['node_modules/', 'gcdata/', 'dist/'],
-  overrides: [
-    {
-      files: ['common/**/*.tsx?', 'components/**/*.tsx?', 'pages/**/*.tsx?'],
-    },
-  ],
 };
