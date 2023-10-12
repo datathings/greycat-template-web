@@ -514,7 +514,7 @@
                 body: JSON.stringify([credentials, true])
             });
             if (res.ok) {
-                window.location.reload();
+                window.location.replace(url.toString()?.replace("login.html", ""));
             } else {
                 resultText('Login rejected');
             }
