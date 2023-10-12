@@ -20,9 +20,9 @@ build:
     - curl -qsL https://get.greycat.io/files/lang/${GREYCAT_CORE_BRANCH}/${GREYCAT_CORE_MAJOR}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d . -oqq tmp.zip
     - ./bin/greycat test
     - ./bin/greycat build
-    - pnpm install
-    - pnpm lint
-    - pnpm build
+    - npm install
+    - npm lint
+    - npm build
     - mv dist webroot
   artifacts:
     when: on_success
