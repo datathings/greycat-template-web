@@ -17,8 +17,6 @@
   font-style: italic;
 }
 
-
-
 /* Default variables */
 /* :root {
   --font-family: 'Open Sans', sans-serif;
@@ -27,7 +25,7 @@
   --font-size-md: 14px;
   --font-size-lg: 14px;
   --font-size-xl: 14px;
-  --font-weight: 500;
+  --font-weight: normal;
 
   --spacing: 0.5rem;
 
