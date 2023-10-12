@@ -8,8 +8,6 @@ variables:
   GREYCAT_CORE_VERSION: "6.3.86-dev"
   GREYCAT_LANG_VERSION: "6.3.5-dev"
 
-# This folder is cached between builds
-# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
 cache:
   paths:
     - node_modules/
@@ -19,13 +17,16 @@ build:
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_CORE_BRANCH}/x86-linux/${GREYCAT_CORE_MAJOR}/${GREYCAT_CORE_VERSION}.zip -o tmp.zip && unzip -d ~/.greycat -oqq tmp.zip
     - curl -qsL https://get.greycat.io/files/lang/${GREYCAT_CORE_BRANCH}/${GREYCAT_CORE_MAJOR}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d ~/.greycat -oqq tmp.zip
     - export PATH=$PATH:~/.greycat/bin
+    # build backend
     - greycat test
     - greycat build
+    # build frontend
     - npm install -g pnpm
     - pnpm install
     - pnpm lint
     - pnpm build
-    - mv dist webroot && cp ~/.greycat/bin/greycat && echo "GREYCAT_MODE=serve" > .env
+    # prepare packaging
+    - mv dist webroot && cp ~/.greycat/bin/greycat greycat && echo "GREYCAT_MODE=serve" > .env
 
   artifacts:
     when: on_success
