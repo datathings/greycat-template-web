@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "pnpm lint:app && pnpm lint:server",
-    "lint:app": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:app": "eslint common components pages -c ./.eslintrc.cjs --report-unused-disable-directives --max-warnings 0",
     "lint:server": "greycat-lang lint",
     "gen": "greycat codegen common/project"
   },
