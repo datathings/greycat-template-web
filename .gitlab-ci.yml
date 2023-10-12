@@ -1,4 +1,4 @@
-image: 20.8.0-bookworm
+image: node:20.8.0-bookworm
 
 variables:
   GIT_STRATEGY: clone
