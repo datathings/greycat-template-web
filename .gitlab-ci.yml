@@ -25,7 +25,7 @@ build:
     - pnpm install
     - pnpm lint
     - pnpm build
-    - mv dist webroot && cp ~/.greycat/bin/greycat
+    - mv dist webroot && cp ~/.greycat/bin/greycat && echo "GREYCAT_MODE=serve" > .env
 
   artifacts:
     when: on_success
