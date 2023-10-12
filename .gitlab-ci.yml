@@ -26,7 +26,8 @@ build:
     - pnpm lint
     - pnpm build
     # prepare packaging
-    - mv dist webroot && cp ~/.greycat/bin/greycat greycat && echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
+    - mv dist webroot && cp ~/.greycat/bin/greycat greycat
+    - echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
 
   artifacts:
     when: on_success
