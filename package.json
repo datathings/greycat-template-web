@@ -14,7 +14,7 @@
     "test": "greycat test"
   },
   "dependencies": {
-    "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz",
+    "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz",
     "@tabler/icons": "2.34.0"
   },
   "devDependencies": {

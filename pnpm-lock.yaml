@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@greycat/web':
-    specifier: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz
-    version: '@get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz'
+    specifier: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz
+    version: '@get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz'
   '@tabler/icons':
     specifier: 2.34.0
     version: 2.34.0
@@ -1892,10 +1892,10 @@ packages:
     engines: {node: '>=18'}
     dev: false
 
-  '@get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz':
-    resolution: {registry: https://hub.datathings.com/api/v4/projects/289/packages/npm/, tarball: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.51-dev.tgz}
+  '@get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz}
     name: '@greycat/web'
-    version: 6.3.51-dev
+    version: 6.3.53-dev
     engines: {node: '>=16.13.0'}
     dependencies:
       '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.3/6.3.20-dev.tgz'
