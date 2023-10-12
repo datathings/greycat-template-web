@@ -514,11 +514,14 @@
         body: JSON.stringify([credentials, true])
       });
       if (res.ok) {
+        const url = new URL(window.location.href.toString());
+        url.hash = '';
         window.location.replace(url.toString()?.replace("login.html", ""));
       } else {
         resultText('Login rejected');
       }
     } catch (err) {
+      console.error(err);
       resultText('Login failed');
     }
   }
