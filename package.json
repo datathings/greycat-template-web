@@ -10,8 +10,7 @@
     "lint": "pnpm lint:app && pnpm lint:server",
     "lint:app": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:server": "greycat-lang lint",
-    "gen": "greycat codegen common/project",
-    "test": "greycat test"
+    "gen": "greycat codegen common/project"
   },
   "dependencies": {
     "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz",
