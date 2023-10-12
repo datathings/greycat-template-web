@@ -22,7 +22,8 @@ build:
     - ./bin/greycat build
     - npm install -g pnpm
     - pnpm install
-    - pnpm lint
+    - pnpm lint:app
+    - ./bin/greycat-lang lint --std=./lib/std
     - pnpm build
     - mv dist webroot
   artifacts:
