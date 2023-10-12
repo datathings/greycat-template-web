@@ -23,7 +23,7 @@ build:
     - npm install -g pnpm
     - pnpm install
     - pnpm lint:app
-    - node ./bin/greycat-lang lint --std=./lib/std
+    - node ./bin/greycat-lang lint --std=./bin/lib/std
     - pnpm build
     - mv dist webroot
   artifacts:
