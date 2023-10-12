@@ -329,19 +329,26 @@
           autocomplete="current-password" />
       </label>
       <button id="submit">Sign in</button>
+      <button id="oid">
+        OpenID Sign-in
+      </button>
       <div id="result"></div>
     </div>
     <div id="footer">by DataThings</div>
   </main>
 </body>
 
-<script type="module">
-  // @ts-check
-
-  const resultEl = /** @type {HTMLDivElement} */ (document.getElementById('result'));
-  const usernameEl = /** @type {HTMLInputElement} */ (document.getElementById('username'));
-  const passwordEl = /** @type {HTMLInputElement} */ (document.getElementById('password'));
-  const submitEl = /** @type {HTMLButtonElement} */ (document.getElementById('submit'));
+<script>
+  /** @type {HTMLDivElement} */
+  const resultEl = document.getElementById('result');
+  /** @type {HTMLInputElement} */
+  const usernameEl = document.getElementById('username');
+  /** @type {HTMLInputElement} */
+  const passwordEl = document.getElementById('password');
+  /** @type {HTMLButtonElement} */
+  const submitEl = document.getElementById('submit');
+  /** @type {HTMLButtonElement} */
+  const oidEl = document.getElementById('oid');
 
   function resetErrHandler() {
     resultEl.style.display = 'none';
@@ -493,9 +500,9 @@
   async function auth() {
     try {
       const credentials = btoa(`${usernameEl.value}:${sha256hex(passwordEl.value)}`);
-      const res = await fetch('/runtime::User::login', { method: 'POST', body: JSON.stringify([credentials, true]) });
+      const res = await fetch('./runtime::User::login', { method: 'POST', body: JSON.stringify([credentials, true]) });
       if (res.ok) {
-        location.replace('..');
+        window.location.reload();
       } else {
         resultText('Login rejected');
       }
@@ -504,12 +511,62 @@
     }
   }
 
+  async function start_open_id() {
+
+    const response = await fetch('./runtime::User::me', { method: 'POST', body: JSON.stringify("") });
+    if (response.ok) {
+      const me_obj = await response.json();
+      if (me_obj !== null) {
+        console.log("logged!")
+        return;
+      }
+    }
+
+    const urlParams = new URLSearchParams(window.location.hash.replace("#", "?"));
+    if (urlParams.has("id_token")) {
+      const response = await fetch('./runtime::User::tokenLogin', {
+        method: 'POST',
+        body: JSON.stringify([urlParams.get("id_token"), true])
+      });
+      if (response.ok) {
+        const url = new URL(window.location.href.toString());
+        url.hash = '';
+        window.location.replace(url.toString()?.replace("login.html", ""));
+      } else {
+        resultText('Login rejected');
+      }
+    } else {
+      const response = await fetch('./runtime::OpenIDConnect::config', { method: 'POST', body: JSON.stringify("") });
+      if (response.ok) {
+        const open_id_config = await response.json();
+        if (open_id_config != null && open_id_config.url !== null) {
+          const response_oid_infos = await fetch(open_id_config.url);
+          if (response_oid_infos.ok) {
+            const oid_infos = await response_oid_infos.json();
+            if (oid_infos != null && oid_infos.authorization_endpoint !== null) {
+              const href = window.location.href.toString();
+              window.location.replace(oid_infos.authorization_endpoint + "?client_id=" + open_id_config.clientId +
+                "&response_type=id_token&redirect_uri=" + encodeURI(href) +
+                "&scope=openid&response_mode=fragment&state=12345&nonce=678910"
+              );
+            }
+          }
+        }
+      }
+    }
+    oidEl.disabled = true;
+    oidEl.style.display = "none";
+  }
+
+  start_open_id();
   usernameEl.addEventListener('keypress', keypressHandler);
   usernameEl.addEventListener('focus', resetErrHandler);
   passwordEl.addEventListener('keypress', keypressHandler);
   passwordEl.addEventListener('focus', resetErrHandler);
   submitEl.addEventListener('click', auth);
   submitEl.addEventListener('focus', resetErrHandler);
+  oidEl.addEventListener('click', auth);
+  oidEl.addEventListener('focus', resetErrHandler);
 </script>
 
 </html>
