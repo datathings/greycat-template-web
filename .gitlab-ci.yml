@@ -16,16 +16,16 @@ cache:
 
 build:
   script:
-    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_CORE_BRANCH}/x86-linux/${GREYCAT_CORE_MAJOR}/${GREYCAT_CORE_VERSION}.zip -o tmp.zip && unzip -d . -oqq tmp.zip
-    - curl -qsL https://get.greycat.io/files/lang/${GREYCAT_CORE_BRANCH}/${GREYCAT_CORE_MAJOR}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d . -oqq tmp.zip
-    - cp bin/greycat greycat && rm -Rf misc
-    - ./greycat test
-    - ./greycat build
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_CORE_BRANCH}/x86-linux/${GREYCAT_CORE_MAJOR}/${GREYCAT_CORE_VERSION}.zip -o tmp.zip && unzip -d ~/.greycat -oqq tmp.zip
+    - curl -qsL https://get.greycat.io/files/lang/${GREYCAT_CORE_BRANCH}/${GREYCAT_CORE_MAJOR}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d ~/.greycat -oqq tmp.zip
+    - export PATH=$PATH:~/.greycat/bin
+    - greycat test
+    - greycat build
     - npm install -g pnpm
     - pnpm install
     - pnpm lint
     - pnpm build
-    - mv dist/* webroot
+    - mv dist webroot && cp ~/.greycat/bin/greycat
 
   artifacts:
     when: on_success
