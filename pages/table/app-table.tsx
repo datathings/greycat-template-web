@@ -29,7 +29,6 @@ export class AppTable extends HTMLElement {
         },
       ],
     };
-    this._chart.setConfig(this._chartConfig);
   }
 
   async connectedCallback() {
@@ -39,6 +38,8 @@ export class AppTable extends HTMLElement {
         {this._chart}
       </div>
     );
+
+    this._chart.setConfig(this._chartConfig);
 
     try {
       const table = await hello.table_example('sample');
