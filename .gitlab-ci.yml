@@ -3,10 +3,6 @@ image: node:20.8.0-bookworm
 variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: "0"
-  GREYCAT_CORE_BRANCH: "dev"
-  GREYCAT_CORE_MAJOR: "6.3"
-  GREYCAT_CORE_VERSION: "6.3.86-dev"
-  GREYCAT_LANG_VERSION: "6.3.5-dev"
 
 cache:
   paths:
