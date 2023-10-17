@@ -8,12 +8,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "pnpm lint:app && pnpm lint:server",
-    "lint:app": "eslint common components pages -c ./.eslintrc.cjs --report-unused-disable-directives --max-warnings 0",
+    "lint:app": "eslint frontend/common frontend/components frontend/pages -c ./.eslintrc.cjs --report-unused-disable-directives --max-warnings 0",
     "lint:server": "greycat-lang lint",
-    "gen": "greycat codegen common/project"
+    "gen": "greycat codegen frontend/common/project"
   },
   "dependencies": {
-    "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.3/6.3.53-dev.tgz",
+    "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.3/6.3.57-dev.tgz",
     "@tabler/icons": "2.34.0"
   },
   "devDependencies": {
