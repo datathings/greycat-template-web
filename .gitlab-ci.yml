@@ -22,12 +22,11 @@ build:
     - pnpm lint
     - pnpm build
     # prepare packaging
-    - apt-get -y install zip
     - mkdir package && cd package 
     - mv ../dist webroot && cp ../project.gcp . && cp -R ~/.greycat/webroot/explorer webroot
     - echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_LINUX}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat greycat && zip -r ../x64-linux.zip .
+    - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-linux.tar.gz .
 
   artifacts:
     when: on_success
