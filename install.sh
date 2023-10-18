@@ -15,6 +15,6 @@ GREYCAT_CORE_VERSION="6.4/6.4.28-dev"
 GREYCAT_LANG_VERSION="6.4/6.4.3-dev"
 GREYCAT_EXPLORER_VERSION="6.4/6.4.6-dev"
 GREYCAT_CORE_VERSION_ARCH=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/${GREYCAT_TARGET}\//")
-curl -vqsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARCH}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-curl -vqsL https://get.greycat.io/files/lang/${GREYCAT_BRANCH}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-curl -vqsL https://get.greycat.io/files/apps/explorer/${GREYCAT_BRANCH}/${GREYCAT_EXPLORER_VERSION}.zip -o tmp.zip && unzip -d "$GREYCAT_DIR" -oqq tmp.zip && rm tmp.zip
+curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARCH}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+curl -qsL https://get.greycat.io/files/lang/${GREYCAT_BRANCH}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+curl -qsL https://get.greycat.io/files/apps/explorer/${GREYCAT_BRANCH}/${GREYCAT_EXPLORER_VERSION}.zip -o tmp.zip && unzip -d "$GREYCAT_DIR" -oqq tmp.zip && rm tmp.zip
