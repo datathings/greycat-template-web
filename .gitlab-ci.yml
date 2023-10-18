@@ -25,7 +25,8 @@ build:
     - echo $GREYCAT_CORE_VERSION_ARCH
     - mv dist webroot && cp ~/.greycat/bin/greycat greycat && cp -R ~/.greycat/webroot/explorer webroot
     - echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
-
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/x64-windows\//").zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/arm64-windows\//").zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
   artifacts:
     when: on_success
     expire_in: 1 week
