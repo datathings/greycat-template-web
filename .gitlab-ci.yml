@@ -21,6 +21,7 @@ build:
     - pnpm lint
     - pnpm build
     # prepare packaging
+    - echo $GREYCAT_CORE_VERSION_ARCH
     - mv dist webroot && cp ~/.greycat/bin/greycat greycat && cp -R ~/.greycat/webroot/explorer webroot
     - echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
 
