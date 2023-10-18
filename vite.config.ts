@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => ({
       'top-level-await': true, // browsers can handle top-level-await features
     },
   },
-  publicDir: resolve(__dirname, 'public'),
-  root: resolve(__dirname, 'pages'),
+  publicDir: resolve(__dirname, 'frontend/public'),
+  root: resolve(__dirname, 'frontend/pages'),
   define: {
     // This ensures libraries that leverages 'process.env.NODE_ENV'
     // have it replaced statically before dead-code removal
@@ -38,9 +38,9 @@ export default defineConfig(({ mode }) => ({
         //
         // eg. `hello: resolve(__dirname, 'pages/hello/index.html'),`
         // (see. https://vitejs.dev/guide/build.html#multi-page-app)
-        index: resolve(__dirname, 'pages/index.html'),
-        table: resolve(__dirname, 'pages/table/index.html'),
-        about: resolve(__dirname, 'pages/about/index.html'),
+        index: resolve(__dirname, 'frontend/pages/index.html'),
+        table: resolve(__dirname, 'frontend/pages/table/index.html'),
+        about: resolve(__dirname, 'frontend/pages/about/index.html'),
       },
     },
   },
