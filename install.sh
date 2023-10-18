@@ -15,6 +15,13 @@ export GREYCAT_CORE_VERSION="6.4/6.4.28-dev"
 export GREYCAT_LANG_VERSION="6.4/6.4.3-dev"
 export GREYCAT_EXPLORER_VERSION="6.4/6.4.6-dev"
 export GREYCAT_CORE_VERSION_ARCH=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/${GREYCAT_TARGET}\//")
+
+export GREYCAT_CORE_VERSION_ARM64_APPLE=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/arm64-apple\//")
+export GREYCAT_CORE_VERSION_X64_APPLE=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/x64-apple\//")
+export GREYCAT_CORE_VERSION_ARM64_WINDOWS=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/arm64-windows\//")
+export GREYCAT_CORE_VERSION_X64_WINDOWS=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/x64-windows\//")
+export GREYCAT_CORE_VERSION_ARM64_LINUX=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/arm64-linux\//")
+export GREYCAT_CORE_VERSION_X64_LINUX=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/x64-linux\//")
 curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARCH}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
 curl -qsL https://get.greycat.io/files/lang/${GREYCAT_BRANCH}/${GREYCAT_LANG_VERSION}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
 curl -qsL https://get.greycat.io/files/apps/explorer/${GREYCAT_BRANCH}/${GREYCAT_EXPLORER_VERSION}.zip -o tmp.zip && unzip -d "$GREYCAT_DIR" -oqq tmp.zip && rm tmp.zip
