@@ -1,4 +1,4 @@
-image: node:20.8.1-bookworm-slim
+image: node:20.8.1-bookworm
 
 variables:
   GIT_STRATEGY: clone
@@ -32,4 +32,4 @@ build:
     when: on_success
     expire_in: 1 week
     paths:
-      - x64-linux.zip
+      - x64-linux.tar.gz
