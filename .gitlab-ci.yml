@@ -22,6 +22,7 @@ build:
     - pnpm lint
     - pnpm build
     # prepare packaging
+    - apt-get -y install zip
     - mkdir package && cd package 
     - mv ../dist webroot && cp ../project.gcp . && cp -R ~/.greycat/webroot/explorer webroot
     - echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
