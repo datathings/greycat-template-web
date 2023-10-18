@@ -1,14 +1,16 @@
-image: node:20.8.1-bookworm
-
 variables:
   GIT_STRATEGY: clone
   GIT_DEPTH: "0"
 
-cache:
-  paths:
-    - node_modules/
+stages:
+  - build
+  - package
+
+
 
 build:
+  stage: build
+  image: node:20.8.1-bookworm
   script:
     - source install.sh
     - export PATH=$PATH:~/.greycat/bin
@@ -48,3 +50,12 @@ build:
       - arm64-apple.tar.gz
       - x64-windows.tar.gz
       - arm64-windows.tar.gz
+  cache:
+    paths:
+      - node_modules/
+
+package:
+  stage: package
+  image: quay.io/podman/stable:v4.7.0
+  script:
+    - podman -v
