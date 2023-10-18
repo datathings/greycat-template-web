@@ -27,9 +27,23 @@ build:
     - echo "GREYCAT_MODE=serve" > .env && echo "GREYCAT_WEBROOT=webroot" >> .env && echo "GREYCAT_UNSECURE=true" >> .env
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_LINUX}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
     - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-linux.tar.gz .
-
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_LINUX}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-linux.tar.gz .
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-apple.tar.gz .
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-apple.tar.gz .
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-windows.tar.gz .
+    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-windows.tar.gz .
   artifacts:
     when: on_success
     expire_in: 1 week
     paths:
       - x64-linux.tar.gz
+      - arm64-linux.tar.gz
+      - x64-apple.tar.gz
+      - arm64-apple.tar.gz
+      - x64-windows.tar.gz
+      - arm64-windows.tar.gz
