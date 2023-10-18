@@ -10,7 +10,7 @@ cache:
 
 build:
   script:
-    - ./install.sh
+    - source install.sh
     - export PATH=$PATH:~/.greycat/bin
     # build backend
     - greycat test
