@@ -33,10 +33,11 @@ build:
     - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-apple.tar.gz .
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
     - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-apple.tar.gz .
+    - rm greycat
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-windows.tar.gz .
+    - cp ~/.greycat/bin/greycat.exe greycat.exe && tar czf ../x64-windows.tar.gz .
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-windows.tar.gz .
+    - cp ~/.greycat/bin/greycat.exe greycat.exe && tar czf ../arm64-windows.tar.gz .
   artifacts:
     when: on_success
     expire_in: 1 week
