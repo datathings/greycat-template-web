@@ -13,7 +13,7 @@ build:
     - source install.sh
     - export PATH=$PATH:~/.greycat/bin
     # build backend
-    - greycat build_version
+    - greycat build-version
     - greycat test
     - greycat build
     # build frontend
