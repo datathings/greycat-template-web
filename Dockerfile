@@ -1,5 +1,7 @@
 FROM docker.io/library/busybox:1.36.1-glibc
 ADD x64-linux.tar.gz /
+RUN ls -alh /
+RUN rm /.env
 VOLUME /gcdata
 EXPOSE 8080
 ENV GREYCAT_LOGFILE=true
