@@ -13,7 +13,7 @@ build:
     - source install.sh
     - export PATH=$PATH:~/.greycat/bin
     # build backend
-    - greycat build-version
+    - printf printf $(greycat build-version) > build_version
     - greycat test
     - greycat build
     # build frontend
@@ -42,6 +42,7 @@ build:
     when: on_success
     expire_in: 1 week
     paths:
+      - build_version
       - x64-linux.tar.gz
       - arm64-linux.tar.gz
       # - x64-apple.tar.gz
@@ -55,7 +56,9 @@ build:
 package:
   stage: package
   image: quay.io/podman/stable:v4.7.0
+  when: manual
   script:
+    - build_version=`cat build_version`
     - podman build -t oci.datathings.com/template/web .
     #- docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    #- docker push oci.datathings.com/template/web:latest
+    #- docker push oci.datathings.com/template/web:${build_version}
