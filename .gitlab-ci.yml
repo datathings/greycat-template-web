@@ -6,8 +6,6 @@ stages:
   - build
   - package
 
-
-
 build:
   stage: build
   image: node:20.8.1-bookworm
@@ -31,25 +29,25 @@ build:
     - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-linux.tar.gz .
     - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_LINUX}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
     - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-linux.tar.gz .
-    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-apple.tar.gz .
-    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-apple.tar.gz .
-    - rm greycat
-    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat.exe greycat.exe && tar czf ../x64-windows.tar.gz .
-    - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
-    - cp ~/.greycat/bin/greycat.exe greycat.exe && tar czf ../arm64-windows.tar.gz .
+    # - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    # - cp ~/.greycat/bin/greycat greycat && tar czf ../x64-apple.tar.gz .
+    # - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_APPLE}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    # - cp ~/.greycat/bin/greycat greycat && tar czf ../arm64-apple.tar.gz .
+    # - rm greycat
+    # - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_X64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    # - cp ~/.greycat/bin/greycat.exe greycat.exe && tar czf ../x64-windows.tar.gz .
+    # - curl -qsL https://get.greycat.io/files/core/${GREYCAT_BRANCH}/${GREYCAT_CORE_VERSION_ARM64_WINDOWS}.zip -o tmp.zip && unzip -d ${GREYCAT_DIR} -oqq tmp.zip && rm tmp.zip
+    # - cp ~/.greycat/bin/greycat.exe greycat.exe && tar czf ../arm64-windows.tar.gz .
   artifacts:
     when: on_success
     expire_in: 1 week
     paths:
       - x64-linux.tar.gz
       - arm64-linux.tar.gz
-      - x64-apple.tar.gz
-      - arm64-apple.tar.gz
-      - x64-windows.tar.gz
-      - arm64-windows.tar.gz
+      # - x64-apple.tar.gz
+      # - arm64-apple.tar.gz
+      # - x64-windows.tar.gz
+      # - arm64-windows.tar.gz
   cache:
     paths:
       - node_modules/
@@ -58,4 +56,6 @@ package:
   stage: package
   image: quay.io/podman/stable:v4.7.0
   script:
-    - podman -v
+    - docker build docker push oci.datathings.com/template/web
+    #- docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    #- docker push oci.datathings.com/template/web:latest
