@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@greycat/web':
-    specifier: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.57-dev.tgz
-    version: '@get.greycat.io/files/sdk/web/dev/6.3/6.3.57-dev.tgz'
+    specifier: https://get.greycat.io/files/sdk/web/dev/6.4/6.4.10-dev.tgz
+    version: '@get.greycat.io/files/sdk/web/dev/6.4/6.4.10-dev.tgz'
   '@tabler/icons':
     specifier: 2.34.0
     version: 2.34.0
@@ -1734,6 +1734,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /slugify@1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
+    dev: false
+
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -1885,20 +1890,22 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  '@get.greycat.io/files/sdk/js/dev/6.3/6.3.21-dev.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/js/dev/6.3/6.3.21-dev.tgz}
+  '@get.greycat.io/files/sdk/js/dev/6.4/6.4.7-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/js/dev/6.4/6.4.7-dev.tgz}
     name: '@greycat/sdk'
-    version: 6.3.21-dev
+    version: 6.4.7-dev
     engines: {node: '>=18'}
+    dependencies:
+      slugify: 1.6.6
     dev: false
 
-  '@get.greycat.io/files/sdk/web/dev/6.3/6.3.57-dev.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.3/6.3.57-dev.tgz}
+  '@get.greycat.io/files/sdk/web/dev/6.4/6.4.10-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.4/6.4.10-dev.tgz}
     name: '@greycat/web'
-    version: 6.3.57-dev
+    version: 6.4.10-dev
     engines: {node: '>=16.13.0'}
     dependencies:
-      '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.3/6.3.21-dev.tgz'
+      '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.4/6.4.7-dev.tgz'
       d3: 7.8.5
       maplibre-gl: 2.4.0
     dev: false
