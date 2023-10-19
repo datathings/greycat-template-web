@@ -56,6 +56,6 @@ package:
   stage: package
   image: quay.io/podman/stable:v4.7.0
   script:
-    - podman build docker push oci.datathings.com/template/web
+    - podman build -t oci.datathings.com/template/web .
     #- docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     #- docker push oci.datathings.com/template/web:latest
