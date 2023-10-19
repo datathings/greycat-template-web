@@ -10,5 +10,5 @@ await app.init(); // initialize the app (eg. GreyCat.init, etc.)
 // add <app-layout /> to the DOM
 document.body.prepend(app);
 
-// initialize <app-home /> and set it to the `app.main` which is the main page area
+// initialize <app-table /> and set it to the `app.main` which is the main page area
 app.main.replaceChildren(<app-table />);
