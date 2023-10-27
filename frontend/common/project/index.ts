@@ -14,29 +14,6 @@ export namespace hello {
 
     current_time: $sdk.std.core.time;
     text: string;
-    constructor(type: $sdk.AbiType, ...attributes: any[]) {
-      super(type, ...attributes);
-      Object.defineProperties(this, {
-        current_time: {
-          enumerate: true,
-          get() {
-            return this.$attrs[this.$type.generated_offsets[0]];
-          },
-          set(v) {
-            this.$attrs[this.$type.generated_offsets[0]] = v;
-          },
-        },
-        text: {
-          enumerate: true,
-          get() {
-            return this.$attrs[this.$type.generated_offsets[1]];
-          },
-          set(v) {
-            this.$attrs[this.$type.generated_offsets[1]] = v;
-          },
-        },
-      });
-    }
 
     static createFrom({current_time, text}: {current_time: $sdk.std.core.time, text: string}, $g: $sdk.GreyCat = globalThis.greycat.default): HelloInfo {
       return new HelloInfo($g.abi.libs_by_name.get(projectlib.name)!.mapped[0], current_time, text);
@@ -54,6 +31,9 @@ export namespace hello {
   }
 }
 
+export namespace $anon$ {
+}
+
 export const projectlib: $sdk.Library = {
   name: 'project',
   mapped: new globalThis.Array(1),
@@ -62,8 +42,5 @@ export const projectlib: $sdk.Library = {
   },
   init(abi) {
     this.mapped[0] = abi.type_by_fqn.get(hello.HelloInfo._type);
-    if (this.mapped[0] !== undefined) {
-      this.mapped[0].resolveGeneratedOffsets('current_time','text');
-    }
   },
 };
