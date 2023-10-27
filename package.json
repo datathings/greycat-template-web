@@ -13,7 +13,7 @@
     "gen": "greycat codegen frontend/common/project"
   },
   "dependencies": {
-    "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.4/6.4.10-dev.tgz",
+    "@greycat/web": "https://get.greycat.io/files/sdk/web/dev/6.5/6.5.1-dev.tgz",
     "@tabler/icons": "2.34.0"
   },
   "devDependencies": {
@@ -25,6 +25,6 @@
     "lightningcss": "1.22.0",
     "prettier": "2.7.1",
     "typescript": "5.2.2",
-    "vite": "4.4.11"
+    "vite": "4.5.0"
   }
 }

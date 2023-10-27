@@ -11,9 +11,9 @@ if [[ $(uname) == 'Darwin' ]]; then
 fi
 export GREYCAT_TARGET="${GREYCAT_ARCH}-${GREYCAT_OS}"
 export GREYCAT_BRANCH="dev"
-export GREYCAT_CORE_VERSION="6.4/6.4.28-dev"
-export GREYCAT_LANG_VERSION="6.4/6.4.3-dev"
-export GREYCAT_EXPLORER_VERSION="6.4/6.4.6-dev"
+export GREYCAT_CORE_VERSION="6.5/6.5.9-dev"
+export GREYCAT_LANG_VERSION="6.5/6.5.0-dev"
+export GREYCAT_EXPLORER_VERSION="6.5/6.5.2-dev"
 export GREYCAT_CORE_VERSION_ARCH=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/${GREYCAT_TARGET}\//")
 
 export GREYCAT_CORE_VERSION_ARM64_APPLE=$(printf "${GREYCAT_CORE_VERSION}" | sed "s/\//\/arm64-apple\//")
