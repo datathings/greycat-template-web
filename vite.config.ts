@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
           index: resolve(__dirname, 'frontend/pages/index.html'),
           table: resolve(__dirname, 'frontend/pages/table/index.html'),
           about: resolve(__dirname, 'frontend/pages/about/index.html'),
+          protected: resolve(__dirname, 'frontend/pages/protected/index.html'),
         },
       },
     },
