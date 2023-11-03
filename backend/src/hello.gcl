@@ -24,3 +24,9 @@ fn table_example(data: String): Table {
 
   return table;
 }
+
+@expose
+@permission("protected")
+fn protected_endpoint(): String {
+  return "This is only available if you have the 'protected' permission";
+}

@@ -1,16 +1,19 @@
-import { WithoutAbiOptions, init, logout } from '@greycat/web';
+import { logout } from '@greycat/web';
 import LogoutIcon from '@tabler/icons/logout.svg?raw';
 import BrightnessUpIcon from '@tabler/icons/brightness-up.svg?raw';
 import MoonIcon from '@tabler/icons/moon.svg?raw';
 import HomeIcon from '@tabler/icons/home.svg?raw';
 import TableIcon from '@tabler/icons/table.svg?raw';
 import InfoSquareRoundedIcon from '@tabler/icons/info-square-rounded.svg?raw';
+import LockOpenIcon from '@tabler/icons/lock-open.svg?raw';
 import LogoIcon from './logo.svg?raw';
 import { icon } from '../../common/utils';
 import { APP_LAYOUT_THEME } from '../../common/constants';
 import './app-layout.css';
-import { projectlib } from '../../common/project';
 
+/**
+ * Make sure to append this component to the DOM **after** GreyCat is initialized
+ */
 export class AppLayout extends HTMLElement {
   readonly main = document.createElement('main');
 
@@ -64,7 +67,7 @@ export class AppLayout extends HTMLElement {
     const parent = this.parent;
     const current = this.current;
 
-    const nav = (
+    this.appendChild(
       <aside>
         <nav>
           <ul>
@@ -93,15 +96,15 @@ export class AppLayout extends HTMLElement {
             </li>
             {/* Example menu entry: */}
             {/* <li>
-              <a
-                className={current === 'routeName' ? 'active' : undefined}
-                href={`${parent}/routeName/`}
-                data-tooltip="Route Name"
-                data-placement="right"
-              >
-                {icon(RouteIcon)}
-              </a>
-            </li> */}
+          <a
+            className={current === 'routeName' ? 'active' : undefined}
+            href={`${parent}/routeName/`}
+            data-tooltip="Route Name"
+            data-placement="right"
+          >
+            {icon(RouteIcon)}
+          </a>
+        </li> */}
             <li>
               <a
                 className={current === 'about' ? 'active' : undefined}
@@ -112,6 +115,18 @@ export class AppLayout extends HTMLElement {
                 {icon(InfoSquareRoundedIcon)}
               </a>
             </li>
+            {greycat.default.hasPermission('protected') ? (
+              <li>
+                <a
+                  className={current === 'protected' ? 'active' : undefined}
+                  href={`${parent}/protected/`}
+                  data-tooltip="Protected"
+                  data-placement="right"
+                >
+                  {icon(LockOpenIcon)}
+                </a>
+              </li>
+            ) : undefined}
           </ul>
 
           <ul>
@@ -128,10 +143,9 @@ export class AppLayout extends HTMLElement {
             </li>
           </ul>
         </nav>
-      </aside>
+      </aside>,
     );
 
-    this.appendChild(nav);
     this.appendChild(this.main);
   }
 
@@ -142,23 +156,6 @@ export class AppLayout extends HTMLElement {
   async signout() {
     await logout();
     location.reload();
-  }
-
-  /**
-   * Wraps initialization to provide a common way to initialize the application.
-   *
-   * @param opts
-   */
-  async init(opts?: WithoutAbiOptions) {
-    // if you want to share initialization logic, here is the place to do it
-    // eg. load application shared state from localStorage (or IndexedDb)
-    //
-    // Nothing's enforced of course
-    greycat.default = await init({
-      unauthorizedHandler: () => location.assign(`${this.parent}/login.html`),
-      libraries: [projectlib],
-      ...opts,
-    });
   }
 }
 

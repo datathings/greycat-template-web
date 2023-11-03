@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@greycat/web':
-    specifier: https://get.greycat.io/files/sdk/web/dev/6.5/6.5.1-dev.tgz
-    version: '@get.greycat.io/files/sdk/web/dev/6.5/6.5.1-dev.tgz'
+    specifier: https://get.greycat.io/files/sdk/web/dev/6.5/6.5.5-dev.tgz
+    version: '@get.greycat.io/files/sdk/web/dev/6.5/6.5.5-dev.tgz'
   '@tabler/icons':
     specifier: 2.34.0
     version: 2.34.0
@@ -1695,21 +1695,21 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  '@get.greycat.io/files/sdk/js/dev/6.5/6.5.1-dev.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/js/dev/6.5/6.5.1-dev.tgz}
+  '@get.greycat.io/files/sdk/js/dev/6.5/6.5.6-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/js/dev/6.5/6.5.6-dev.tgz}
     name: '@greycat/sdk'
-    version: 6.5.1-dev
+    version: 6.5.6-dev
     engines: {node: '>=18'}
     dependencies:
       slugify: 1.6.6
     dev: false
 
-  '@get.greycat.io/files/sdk/web/dev/6.5/6.5.1-dev.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.5/6.5.1-dev.tgz}
+  '@get.greycat.io/files/sdk/web/dev/6.5/6.5.5-dev.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/web/dev/6.5/6.5.5-dev.tgz}
     name: '@greycat/web'
-    version: 6.5.1-dev
+    version: 6.5.5-dev
     engines: {node: '>=16.13.0'}
     dependencies:
-      '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.5/6.5.1-dev.tgz'
+      '@greycat/sdk': '@get.greycat.io/files/sdk/js/dev/6.5/6.5.6-dev.tgz'
       d3: 7.8.5
     dev: false

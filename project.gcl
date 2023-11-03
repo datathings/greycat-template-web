@@ -1,2 +1,21 @@
 @include("backend/src");
 @include("backend/test");
+
+use runtime;
+use util;
+
+var init: bool;
+
+fn main() {
+  if (init == null || !init) {
+    // add permission 'protected' to 'admin' role
+    for (_, role in UserRole::all()) {
+      if (role.name == "admin") {
+        role.permissions.add("protected");
+        UserRole::set(role);
+      }
+    }
+
+    init = true;
+  }
+}

@@ -29,6 +29,9 @@ export namespace hello {
   export function table_example(data: string, $g: $sdk.GreyCat = globalThis.greycat.default, $signal?: AbortSignal): Promise<$sdk.std.core.Table> {
     return $g.call('hello::table_example', [data], $signal);
   }
+  export function protected_endpoint($g: $sdk.GreyCat = globalThis.greycat.default, $signal?: AbortSignal): Promise<string> {
+    return $g.call('hello::protected_endpoint', undefined, $signal);
+  }
 }
 
 export namespace $anon$ {
