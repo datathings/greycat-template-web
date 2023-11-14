@@ -21,7 +21,6 @@ export class AppTable extends HTMLElement {
       },
       series: [
         {
-          title: 'My serie',
           type: 'line',
           yAxis: 'y',
           xCol: 0,
