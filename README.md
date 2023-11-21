@@ -2,6 +2,18 @@
 
 A GreyCat Web application template.
 
+## Run
+- Backend:
+  ```bash
+  greycat init --root_pass=changeme
+  greycat serve
+  ```
+- Frontend:
+  ```bash
+  pnpm install
+  pnpm dev
+  ```
+
 ## Changes before development
 - Ensure the versions are updated in `package.json`, mainly for `@greycat/web`
 - This template application uses `app-` as a WebComponent namespace placeholder.
