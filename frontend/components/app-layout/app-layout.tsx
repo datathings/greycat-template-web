@@ -43,11 +43,7 @@ export class AppLayout extends HTMLElement {
     const lightIcon = icon(BrightnessUpIcon);
     const darkIcon = icon(MoonIcon);
     const initialTheme = getCurrentTheme();
-
-    const themeIcon = {
-      dark: lightIcon,
-      light: darkIcon,
-    };
+    const themeIcon = { dark: lightIcon, light: darkIcon };
 
     function toggleTheme() {
       const curTheme = getCurrentTheme();
@@ -64,69 +60,19 @@ export class AppLayout extends HTMLElement {
       </button>
     ) as HTMLButtonElement;
 
-    const parent = this.parent;
-    const current = this.current;
-
     this.appendChild(
       <aside>
         <nav>
           <ul>
             <li className="brand">
-              <a href={parent}>{icon(LogoIcon)}</a>
+              <a href={this.parent}>{icon(LogoIcon)}</a>
             </li>
-            <li>
-              <a
-                className={current === 'index' ? 'active' : undefined}
-                href={parent}
-                data-tooltip="Index"
-                data-placement="right"
-              >
-                {icon(HomeIcon)}
-              </a>
-            </li>
-            <li>
-              <a
-                className={current === 'table' ? 'active' : undefined}
-                href={`${parent}/table/`}
-                data-tooltip="Table"
-                data-placement="right"
-              >
-                {icon(TableIcon)}
-              </a>
-            </li>
-            {/* Example menu entry: */}
-            {/* <li>
-          <a
-            className={current === 'routeName' ? 'active' : undefined}
-            href={`${parent}/routeName/`}
-            data-tooltip="Route Name"
-            data-placement="right"
-          >
-            {icon(RouteIcon)}
-          </a>
-        </li> */}
-            <li>
-              <a
-                className={current === 'about' ? 'active' : undefined}
-                href={`${parent}/about/`}
-                data-tooltip="About"
-                data-placement="right"
-              >
-                {icon(InfoSquareRoundedIcon)}
-              </a>
-            </li>
-            {greycat.default.hasPermission('protected') ? (
-              <li>
-                <a
-                  className={current === 'protected' ? 'active' : undefined}
-                  href={`${parent}/protected/`}
-                  data-tooltip="Protected"
-                  data-placement="right"
-                >
-                  {icon(LockOpenIcon)}
-                </a>
-              </li>
-            ) : undefined}
+            {this.createNavItem('Index', 'index', icon(HomeIcon), this.parent)}
+            {this.createNavItem('Table', 'table', icon(TableIcon))}
+            {this.createNavItem('About', 'about', icon(InfoSquareRoundedIcon))}
+            {greycat.default.hasPermission('protected')
+              ? this.createNavItem('Protected', 'protected', icon(LockOpenIcon))
+              : undefined}
           </ul>
 
           <ul>
@@ -147,6 +93,26 @@ export class AppLayout extends HTMLElement {
     );
 
     this.appendChild(this.main);
+  }
+
+  private createNavItem(
+    label: string,
+    route: string,
+    child: Element,
+    href = `${this.parent}/${route}/`,
+  ) {
+    return (
+      <li>
+        <a
+          className={this.current === route ? 'active' : undefined}
+          href={href}
+          data-tooltip={label}
+          data-placement="right"
+        >
+          {child}
+        </a>
+      </li>
+    );
   }
 
   disconnectedCallback() {
