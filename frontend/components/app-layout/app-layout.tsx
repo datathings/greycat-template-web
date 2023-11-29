@@ -4,6 +4,7 @@ import BrightnessUpIcon from '@tabler/icons/brightness-up.svg?raw';
 import MoonIcon from '@tabler/icons/moon.svg?raw';
 import HomeIcon from '@tabler/icons/home.svg?raw';
 import TableIcon from '@tabler/icons/table.svg?raw';
+import ComponentsIcon from '@tabler/icons/components.svg?raw';
 import InfoSquareRoundedIcon from '@tabler/icons/info-square-rounded.svg?raw';
 import LockOpenIcon from '@tabler/icons/lock-open.svg?raw';
 import LogoIcon from './logo.svg?raw';
@@ -49,7 +50,7 @@ export class AppLayout extends HTMLElement {
             </li>
             {this._pageNavItems('right')}
           </ul>
-          <ul>{this._extraNavItems('right')}</ul>
+          <ul>{this._extraNavItems()}</ul>
         </nav>
       </aside>,
     );
@@ -62,7 +63,7 @@ export class AppLayout extends HTMLElement {
           </li>
           {this._pageNavItems('bottom')}
         </ul>
-        <ul>{this._extraNavItems('bottom')}</ul>
+        <ul>{this._extraNavItems()}</ul>
       </nav>,
     );
 
@@ -74,6 +75,7 @@ export class AppLayout extends HTMLElement {
       this._createNavItem('Index', '.', icon(HomeIcon), this.parent, placement),
       this._createNavItem('Table', 'table', icon(TableIcon), undefined, placement),
       this._createNavItem('About', 'about', icon(InfoSquareRoundedIcon), undefined, placement),
+      this._createNavItem('Shoelace', 'shoelace', icon(ComponentsIcon), undefined, placement),
     ];
 
     if (greycat.default.hasPermission('protected')) {
@@ -85,7 +87,7 @@ export class AppLayout extends HTMLElement {
     return items;
   }
 
-  private _extraNavItems(placement: 'bottom' | 'right'): HTMLLIElement[] {
+  private _extraNavItems(): HTMLLIElement[] {
     const lightIcon = icon(BrightnessUpIcon);
     const darkIcon = icon(MoonIcon);
     const initialTheme = getCurrentTheme();
@@ -113,7 +115,7 @@ export class AppLayout extends HTMLElement {
     return [
       <li>{toggleThemeBtn}</li>,
       <li>
-        <button role="link" onclick={this.signout} data-tooltip="Logout" data-placement={placement}>
+        <button role="link" onclick={this.signout}>
           {icon(LogoutIcon)}
         </button>
       </li>,

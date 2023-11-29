@@ -11,7 +11,7 @@ greycat.default = await GreyCat.init({
   unauthorizedHandler: () => location.assign('../login.html'),
 });
 
-const app = (<app-layout parent=".." current="table" />) as AppLayout;
+const app = (<app-layout parent=".." current="shoelace" />) as AppLayout;
 // add <app-layout /> to the DOM
 document.body.prepend(app);
 

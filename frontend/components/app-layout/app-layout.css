@@ -227,8 +227,8 @@ app-layout {
 
       a,
       button {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 4px;
+        padding-right: 4px;
         align-items: center;
         display: flex;
         height: 100%;
@@ -258,13 +258,6 @@ app-layout nav {
   }
 }
 
-app-layout li.brand {
-  a svg {
-    width: 50px;
-    height: auto;
-  }
-}
-
 /* Small devices */
 @media (max-width: 991px) {
   app-layout {
@@ -284,8 +277,16 @@ app-layout li.brand {
     }
 
     li.brand {
-      margin-left: calc(var(--spacing) * 2);
-      margin-right: calc(var(--spacing) * 2);
+      a svg {
+        width: 42px;
+        height: auto;
+      }
+    }
+
+    li a svg,
+    li button svg {
+      width: 18px;
+      height: auto;
     }
   }
 
@@ -318,6 +319,11 @@ app-layout li.brand {
 
     li.brand {
       margin-bottom: calc(var(--spacing) * 2);
+
+      a svg {
+        width: 50px;
+        height: auto;
+      }
     }
 
     main {
