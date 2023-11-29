@@ -1,5 +1,6 @@
 import { GuiObject } from '@greycat/web';
 import { hello } from '../../common/project';
+import './app-home.module.css';
 
 export class AppHome extends HTMLElement {
   info: GuiObject;
@@ -12,12 +13,12 @@ export class AppHome extends HTMLElement {
 
   async connectedCallback() {
     this.appendChild(
-      <div className="container-fluid">
+      <div className="container-fluid" role="list">
         <article>
           <header>HelloInfo</header>
           <div className="container-fluid">{this.info}</div>
         </article>
-      </div>
+      </div>,
     );
 
     try {

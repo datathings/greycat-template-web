@@ -1,0 +1,18 @@
+@import '@shoelace-style/shoelace/dist/themes/light.css';
+@import '@shoelace-style/shoelace/dist/themes/dark.css';
+
+:root,
+:host,
+.sl-theme-dark {
+  --sl-color-primary-50: rgb(243 252 239);
+  --sl-color-primary-100: rgb(213 245 202);
+  --sl-color-primary-200: rgb(179 238 159);
+  --sl-color-primary-300: rgb(138 228 106);
+  --sl-color-primary-400: rgb(205, 249, 127);
+  --sl-color-primary-500: rgb(198, 249, 111);
+  --sl-color-primary-600: rgb(192, 248, 95);
+  --sl-color-primary-700: rgb(44 124 16);
+  --sl-color-primary-800: rgb(36 102 13);
+  --sl-color-primary-900: rgb(26 73 10);
+  --sl-color-primary-950: rgb(16 45 6);
+}

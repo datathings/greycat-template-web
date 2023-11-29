@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
         'top-level-await': true, // browsers can handle top-level-await features
       },
     },
+    assetsInclude: ['node_modules/@shoelace-style/shoelace/dist/assets/icons/*.svg'],
     publicDir: resolve(__dirname, 'frontend/public'),
     root: resolve(__dirname, 'frontend/pages'),
     define: {
@@ -42,6 +43,7 @@ export default defineConfig(({ mode }) => {
           index: resolve(__dirname, 'frontend/pages/index.html'),
           table: resolve(__dirname, 'frontend/pages/table/index.html'),
           about: resolve(__dirname, 'frontend/pages/about/index.html'),
+          shoelace: resolve(__dirname, 'frontend/pages/shoelace/index.html'),
           protected: resolve(__dirname, 'frontend/pages/protected/index.html'),
         },
       },

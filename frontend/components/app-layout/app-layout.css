@@ -174,21 +174,11 @@
 } */
 
 app-layout {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 60px 1fr;
-
-  & > * {
-    /* ie. https://datacadamia.com/web/css/grid/overflow */
-    min-width: 0px;
-  }
-
   aside {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: var(--spacing);
-    background-color: var(--bg-0);
 
     nav {
       flex: 1;
@@ -203,37 +193,11 @@ app-layout {
         /* reset picoss left padding */
         padding-left: 0 !important;
 
-        li {
-          &.brand {
-            margin-bottom: calc(var(--spacing) * 2);
-
-            a svg {
-              width: 50px;
-              height: auto;
-            }
-          }
-        }
-
         :where(li, a) {
           width: 100%;
           padding: 0;
           margin: 0;
           text-align: center;
-        }
-
-        a,
-        button {
-          padding: 0.4rem 0;
-          border-radius: 0;
-          border: 0;
-        }
-
-        a.active {
-          background-color: var(--primary-focus);
-        }
-
-        button[role='link']:is([aria-current], :hover, :active, :focus) {
-          background-color: var(--gb-0);
         }
       }
 
@@ -249,14 +213,122 @@ app-layout {
     }
   }
 
-  main {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+  nav.responsive {
+    display: none;
 
-    > * {
+    li {
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      &:last-child {
+        margin-right: calc(var(--spacing) * 2);
+      }
+
+      a,
+      button {
+        padding-left: 8px;
+        padding-right: 8px;
+        align-items: center;
+        display: flex;
+        height: 100%;
+        flex: 1;
+        /* width: 40px; */
+      }
+    }
+  }
+}
+
+app-layout nav {
+  li {
+    a,
+    button {
+      padding: 0.4rem 0;
+      border-radius: 0;
+      border: 0;
+    }
+
+    a.active {
+      background-color: var(--primary-focus);
+    }
+
+    button[role='link']:is([aria-current], :hover, :active, :focus) {
+      background-color: var(--gb-0);
+    }
+  }
+}
+
+app-layout li.brand {
+  a svg {
+    width: 50px;
+    height: auto;
+  }
+}
+
+/* Small devices */
+@media (max-width: 991px) {
+  app-layout {
+    display: block;
+
+    aside {
+      display: none;
+    }
+
+    nav.responsive {
+      display: flex;
+      background-color: var(--bg-0);
+
+      ul {
+        gap: calc(var(--spacing) * 0.5);
+      }
+    }
+
+    li.brand {
+      margin-left: calc(var(--spacing) * 2);
+      margin-right: calc(var(--spacing) * 2);
+    }
+  }
+
+  nav ol:last-of-type,
+  nav ul:last-of-type {
+    /* reset pico */
+    margin-right: 0;
+  }
+}
+
+/* Large devices */
+@media (min-width: 992px) {
+  app-layout {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+
+    & > * {
+      /* ie. https://datacadamia.com/web/css/grid/overflow */
+      min-width: 0px;
+    }
+
+    aside {
+      display: flex;
+      background-color: var(--bg-0);
+    }
+
+    nav.responsive {
+      display: none;
+    }
+
+    li.brand {
+      margin-bottom: calc(var(--spacing) * 2);
+    }
+
+    main {
       height: 100vh;
-      overflow: auto;
+      width: 100%;
+      /* overflow: hidden; */
+
+      > * {
+        height: 100vh;
+        overflow: auto;
+      }
     }
   }
 }
