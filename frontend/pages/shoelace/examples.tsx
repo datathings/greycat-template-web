@@ -15,8 +15,13 @@ import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
 import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import { registerIconLibrary } from '@shoelace-style/shoelace';
+import { ICONS } from '../../common/icons';
 
 export function SlExample() {
+  registerIconLibrary('tabler', {
+    resolver: (name) => ICONS[name] ?? '',
+  });
   return (
     <div className={['container-fluid', 'sl-theme-dark']}>
       <div className="grid">
@@ -24,7 +29,7 @@ export function SlExample() {
           <header>Breadcrumb</header>
           <sl-breadcrumb>
             <sl-breadcrumb-item>
-              <sl-icon slot="prefix" name="house"></sl-icon>
+              <sl-icon library="tabler" slot="prefix" name="house"></sl-icon>
               Home
             </sl-breadcrumb-item>
             <sl-breadcrumb-item>Clothing</sl-breadcrumb-item>
@@ -89,21 +94,21 @@ export function SlExample() {
           <header>Select</header>
           <sl-select label="Select one">
             <sl-option value="option-1">
-              <sl-icon slot="prefix" name="envelope"></sl-icon>
+              <sl-icon library="tabler" slot="prefix" name="mail"></sl-icon>
               Email
-              <sl-icon slot="suffix" name="patch-check"></sl-icon>
+              <sl-icon library="tabler" slot="suffix" name="check"></sl-icon>
             </sl-option>
 
             <sl-option value="option-2">
-              <sl-icon slot="prefix" name="telephone"></sl-icon>
+              <sl-icon library="tabler" slot="prefix" name="phone"></sl-icon>
               Phone
-              <sl-icon slot="suffix" name="patch-check"></sl-icon>
+              <sl-icon library="tabler" slot="suffix" name="check"></sl-icon>
             </sl-option>
 
             <sl-option value="option-3">
-              <sl-icon slot="prefix" name="chat-dots"></sl-icon>
+              <sl-icon library="tabler" slot="prefix" name="message"></sl-icon>
               Chat
-              <sl-icon slot="suffix" name="patch-check"></sl-icon>
+              <sl-icon library="tabler" slot="suffix" name="check"></sl-icon>
             </sl-option>
           </sl-select>
         </article>
@@ -125,11 +130,11 @@ export function SlExample() {
               <sl-divider></sl-divider>
               <sl-menu-item>
                 Prefix
-                <sl-icon slot="prefix" name="gift"></sl-icon>
+                <sl-icon library="tabler" slot="prefix" name="gift"></sl-icon>
               </sl-menu-item>
               <sl-menu-item>
                 Suffix Icon
-                <sl-icon slot="suffix" name="heart"></sl-icon>
+                <sl-icon library="tabler" slot="suffix" name="heart"></sl-icon>
               </sl-menu-item>
             </sl-menu>
           </sl-dropdown>
