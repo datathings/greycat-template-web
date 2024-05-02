@@ -41,33 +41,33 @@ export class AppLayout extends HTMLElement {
   }
 
   connectedCallback() {
+    this.main.replaceChildren(...this.childNodes);
+
     this.appendChild(
-      <aside>
-        <nav>
+      <>
+        <aside>
+          <nav>
+            <ul>
+              <li className="brand">
+                <a href={this.parent}>{icon(LogoIcon)}</a>
+              </li>
+              {this._pageNavItems('right')}
+            </ul>
+            <ul>{this._extraNavItems()}</ul>
+          </nav>
+        </aside>
+        <nav className="responsive">
           <ul>
             <li className="brand">
               <a href={this.parent}>{icon(LogoIcon)}</a>
             </li>
-            {this._pageNavItems('right')}
+            {this._pageNavItems('bottom')}
           </ul>
           <ul>{this._extraNavItems()}</ul>
         </nav>
-      </aside>,
+        {this.main}
+      </>,
     );
-
-    this.appendChild(
-      <nav className="responsive">
-        <ul>
-          <li className="brand">
-            <a href={this.parent}>{icon(LogoIcon)}</a>
-          </li>
-          {this._pageNavItems('bottom')}
-        </ul>
-        <ul>{this._extraNavItems()}</ul>
-      </nav>,
-    );
-
-    this.appendChild(this.main);
   }
 
   private _pageNavItems(placement: 'right' | 'bottom'): HTMLLIElement[] {
