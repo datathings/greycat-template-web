@@ -1,8 +1,6 @@
 import { GreyCat, IndexedDbCache } from '@greycat/web';
 import '../../components/app-layout';
 import { projectlib } from '../../common/project';
-import { AppLayout } from '../../components/app-layout';
-import { SlExample } from './examples';
 
 // initialize GreyCat
 greycat.default = await GreyCat.init({
@@ -11,8 +9,12 @@ greycat.default = await GreyCat.init({
   unauthorizedHandler: () => location.assign('../login.html'),
 });
 
-const app = (<app-layout parent=".." current="shoelace" />) as AppLayout;
-// add <app-layout /> to the DOM
-document.body.prepend(app);
+// load 'app-shoelace' asynchronously
+await import('./app-shoelace');
 
-app.main.replaceChildren(SlExample());
+// add <app-layout /> to the DOM
+document.body.appendChild(
+  <app-layout parent=".." current="shoelace">
+    <app-shoelace />
+  </app-layout>,
+);

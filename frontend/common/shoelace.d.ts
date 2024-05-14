@@ -1,4 +1,3 @@
-import '@greycat/web/jsx';
 import * as sl from '@shoelace-style/shoelace';
 
 declare global {

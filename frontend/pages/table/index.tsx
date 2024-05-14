@@ -1,6 +1,5 @@
 import { GreyCat, IndexedDbCache } from '@greycat/web';
 import '../../components/app-layout';
-import './app-table';
 import { projectlib } from '../../common/project';
 
 // initialize GreyCat
@@ -9,6 +8,9 @@ greycat.default = await GreyCat.init({
   libraries: [projectlib],
   unauthorizedHandler: () => location.assign('../login.html'),
 });
+
+// load 'app-table' asynchronously
+await import('./app-table');
 
 // add <app-layout /> to the DOM
 document.body.append(

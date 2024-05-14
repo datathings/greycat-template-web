@@ -338,3 +338,30 @@ app-layout nav {
     }
   }
 }
+
+/* hotfix for @greycat/web < 6.11 */
+:where(dl, ol, ul):not(
+    :is(
+        :lang(ae),
+        :lang(ar),
+        :lang(arc),
+        :lang(bcc),
+        :lang(bqi),
+        :lang(ckb),
+        :lang(dv),
+        :lang(fa),
+        :lang(glk),
+        :lang(he),
+        :lang(ku),
+        :lang(mzn),
+        :lang(nqo),
+        :lang(pnb),
+        :lang(ps),
+        :lang(sd),
+        :lang(ug),
+        :lang(ur),
+        :lang(yi)
+      )
+  ) {
+  padding-left: calc(var(--spacing) * 4);
+}
