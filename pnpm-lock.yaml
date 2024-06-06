@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@greycat/web':
-    specifier: https://get.greycat.io/files/sdk/web/stable/6.10/6.10.33-stable.tgz
-    version: '@get.greycat.io/files/sdk/web/stable/6.10/6.10.33-stable.tgz'
+    specifier: https://get.greycat.io/files/sdk/web/stable/6.10/6.10.80-stable.tgz
+    version: '@get.greycat.io/files/sdk/web/stable/6.10/6.10.80-stable.tgz'
   '@shoelace-style/shoelace':
     specifier: 2.15.0
     version: 2.15.0(@types/react@18.3.1)
@@ -2008,22 +2008,22 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  '@get.greycat.io/files/sdk/js/stable/6.10/6.10.14-stable.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/js/stable/6.10/6.10.14-stable.tgz}
+  '@get.greycat.io/files/sdk/js/stable/6.10/6.10.19-stable.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/js/stable/6.10/6.10.19-stable.tgz}
     name: '@greycat/sdk'
-    version: 6.10.14-stable
+    version: 6.10.19-stable
     engines: {node: '>=18'}
     dependencies:
       slugify: 1.6.6
     dev: false
 
-  '@get.greycat.io/files/sdk/web/stable/6.10/6.10.33-stable.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/web/stable/6.10/6.10.33-stable.tgz}
+  '@get.greycat.io/files/sdk/web/stable/6.10/6.10.80-stable.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/web/stable/6.10/6.10.80-stable.tgz}
     name: '@greycat/web'
-    version: 6.10.33-stable
+    version: 6.10.80-stable
     engines: {node: '>=16.13.0'}
     dependencies:
-      '@greycat/sdk': '@get.greycat.io/files/sdk/js/stable/6.10/6.10.14-stable.tgz'
+      '@greycat/sdk': '@get.greycat.io/files/sdk/js/stable/6.10/6.10.19-stable.tgz'
       d3: 7.8.5
       dockview-core: 1.10.1
     dev: false

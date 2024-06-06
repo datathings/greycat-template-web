@@ -21,6 +21,15 @@ export default defineConfig(({ mode }) => {
       // have it replaced statically before dead-code removal
       'process.env.NODE_ENV': JSON.stringify(mode),
     },
+    resolve: {
+      alias: {
+        // The following enables:
+        //   import ... from '@/components/app-layout';
+        // rather than
+        //   import ... from '../../components/app-layout';
+        '@': resolve(__dirname, 'frontend'),
+      },
+    },
     css: {
       transformer: 'lightningcss',
       lightningcss: {
@@ -45,6 +54,12 @@ export default defineConfig(({ mode }) => {
           about: resolve(__dirname, 'frontend/pages/about/index.html'),
           shoelace: resolve(__dirname, 'frontend/pages/shoelace/index.html'),
           protected: resolve(__dirname, 'frontend/pages/protected/index.html'),
+        },
+        output: {
+          manualChunks: {
+            'greycat-web': ['@greycat/web'],
+            // 'shoelace': ['@shoelace-style/shoelace'],
+          },
         },
       },
     },
