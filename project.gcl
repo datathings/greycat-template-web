@@ -1,25 +1,2 @@
 @include("backend/src");
 @include("backend/test");
-
-use runtime;
-
-var init: bool;
-
-type Foo {
-  name: String;
-  age: int;
-}
-
-fn main() {
-  if (init == null || !init) {
-    // add permission 'protected' to 'admin' role
-    for (_, role in UserRole::all()) {
-      if (role.name == "admin") {
-        role.permissions.add("protected");
-        UserRole::set(role);
-      }
-    }
-
-    init = true;
-  }
-}

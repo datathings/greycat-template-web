@@ -1,0 +1,13 @@
+type DepInfo {
+  name: String;
+  version: String;
+  license: String;
+}
+
+@expose
+fn info(): Table<DepInfo> {
+  var info = Table<DepInfo> {};
+  info.add_row(DepInfo { name: "some-dep", version: "1.2.3", license: "MIT" });
+  info.add_row(DepInfo { name: "@another/lib", version: "1.0.5-main", license: "MIT" });
+  return info;
+}

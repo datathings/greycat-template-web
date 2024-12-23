@@ -1,49 +1,57 @@
 // AUTO-GENERATED FILE PLEASE DO NOT MODIFY MANUALLY
 /* eslint-disable */
-// @ts-nocheck
-
-import * as $sdk from '@greycat/web';
-import * as project_n from '../../project_n/index.js';
+import * as $greycat from '@greycat/web';
 
 export namespace project {
+  export class Root extends $greycat.GCObject {
+    static readonly _type = 'project::Root';
+
+
+  }
+
 }
 
-export namespace hello {
-  export class HelloInfo extends $sdk.GCObject {
-    static readonly _type = 'hello::HelloInfo';
+export namespace info {
+  export class DepInfo extends $greycat.GCObject {
+    static readonly _type = 'info::DepInfo';
 
-    current_time: $sdk.std.core.time;
-    text: string;
+    name!: string;
+    version!: string;
+    license!: string;
 
-    static createFrom({current_time, text}: {current_time: $sdk.std.core.time, text: string}, $g: $sdk.GreyCat = globalThis.greycat.default): HelloInfo {
-      return new HelloInfo($g.abi.libs_by_name.get(projectlib.name)!.mapped[0], current_time, text);
+    static createFrom({name, version, license}: {name: string, version: string, license: string}, $g: $greycat.GreyCat = $greycat.$.default): DepInfo {
+      return new DepInfo($g.abi.libs_by_name.get(projectlib.name)!.mapped[1], name, version, license);
     }
-    static create(current_time: $sdk.std.core.time, text: string, $g: $sdk.GreyCat = globalThis.greycat.default): HelloInfo {
-      return new HelloInfo($g.abi.libs_by_name.get(projectlib.name)!.mapped[0], current_time, text);
+    static create(name: string, version: string, license: string, $g: $greycat.GreyCat = $greycat.$.default): DepInfo {
+      return new DepInfo($g.abi.libs_by_name.get(projectlib.name)!.mapped[1], name, version, license);
     }
   }
 
-  export function get_hello_info(text: string, $g: $sdk.GreyCat = globalThis.greycat.default, $signal?: AbortSignal): Promise<hello.HelloInfo> {
-    return $g.call('hello::get_hello_info', [text], $signal);
-  }
-  export function table_example(data: string, $g: $sdk.GreyCat = globalThis.greycat.default, $signal?: AbortSignal): Promise<$sdk.std.core.Table> {
-    return $g.call('hello::table_example', [data], $signal);
-  }
-  export function protected_endpoint($g: $sdk.GreyCat = globalThis.greycat.default, $signal?: AbortSignal): Promise<string> {
-    return $g.call('hello::protected_endpoint', undefined, $signal);
+  export function info($g: $greycat.GreyCat = $greycat.$.default, $signal?: AbortSignal): Promise<$greycat.std.core.Table<info.DepInfo>> {
+    return $g.call('info::info', undefined, $signal);
   }
 }
 
-export namespace $anon$ {
-}
-
-export const projectlib: $sdk.Library = {
+export const projectlib: $greycat.Library = {
   name: 'project',
-  mapped: new globalThis.Array(1),
+  mapped: new globalThis.Array(3),
   configure(loaders, factories) {
-    factories.set(hello.HelloInfo._type, hello.HelloInfo);
+    factories.set(project.Root._type, project.Root);
+    factories.set(info.DepInfo._type, info.DepInfo);
   },
   init(abi) {
-    this.mapped[0] = abi.type_by_fqn.get(hello.HelloInfo._type);
+    this.mapped[0] = abi.type_by_fqn.get(project.Root._type)!;
+    this.mapped[1] = abi.type_by_fqn.get(info.DepInfo._type)!;
+    this.mapped[2] = abi.type_by_fqn.get('info::info_args')!;
   },
 };
+
+declare global {
+  namespace greycat {
+    interface GreyCat {
+      call(method: 'info::info', args?: undefined, signal?: AbortSignal): Promise<$greycat.std.core.Table<info.DepInfo>>;
+      spawn(method: 'info::info', args?: undefined, signal?: AbortSignal): Promise<$greycat.std.runtime.Task>;
+      spawnAwait(method: 'info::info', args?: undefined, pollEvery?: number, signal?: AbortSignal): Promise<$greycat.std.core.Table<info.DepInfo>>;
+    }
+  }
+}

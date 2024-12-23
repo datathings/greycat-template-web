@@ -1,0 +1,6 @@
+@import url('@greycat/web/css/greycat.css');
+
+html,
+body {
+  height: 100vh;
+}

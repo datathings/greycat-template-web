@@ -29,6 +29,6 @@
       "@/*": ["./frontend/*"],
     },
   },
-  "include": ["frontend/pages", "frontend/components", "frontend/common"],
+  "include": ["frontend"],
   "exclude": ["node_modules", "vite.config.ts"]
 }

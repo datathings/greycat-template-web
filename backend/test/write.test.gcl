@@ -1,0 +1,6 @@
+// Module ending with ".test.gcl" are stripped out of production builds.
+
+// @test
+// fn test_add() {
+//   Assert::equals(add(40, 2), 42);
+// }

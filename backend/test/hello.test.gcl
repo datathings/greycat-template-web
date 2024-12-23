@@ -1,7 +1,0 @@
-use util;
-use hello;
-
-@test
-fn test_hello() {
-  Assert::equals(get_hello_info("Hello, GreyCat").text, "Hello, GreyCat");
-}

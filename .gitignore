@@ -8,4 +8,5 @@ pnpm-debug.log*
 node_modules
 dist
 
-gcdata
+/gcdata
+/files

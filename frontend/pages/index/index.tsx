@@ -1,19 +1,21 @@
 import { GreyCat, IndexedDbCache } from '@greycat/web';
-import '../../components/app-layout';
-import { projectlib } from '../../common/project';
+import { projectlib } from '@/common/project';
 
-// initialize GreyCat
-greycat.default = await GreyCat.init({
-  cache: new IndexedDbCache('greycat.default'),
+await GreyCat.init({
+  cache: new IndexedDbCache('my.app'),
   libraries: [projectlib],
   unauthorizedHandler: () => location.assign('../login.html'),
 });
 
-// load 'app-home' asynchronously
-await import('./app-home');
+// load the app-layout *after* GreyCat so that the AppLayout can use
+// app-specific types/functions if needed
+await import('@/common/app-layout');
 
 document.body.appendChild(
-  <app-layout parent=".." current=".">
-    <app-home />
+  <app-layout>
+    <h1>Index</h1>
+    <div>
+      <p>Hello, world!</p>
+    </div>
   </app-layout>,
 );
