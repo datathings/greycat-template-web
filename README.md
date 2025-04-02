@@ -9,6 +9,7 @@ pnpm i
 Ensure the `@library` versions are what you are expecting in `project.gcl` and then:
 ```sh
 greycat install
+greycat codegen
 ```
 
 ## Dev
