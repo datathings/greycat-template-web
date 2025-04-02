@@ -1,0 +1,13 @@
+:host {
+  --height: 45px;
+  display: contents;
+}
+
+a {
+  height: var(--height);
+}
+
+.logo {
+  width: auto;
+  height: var(--height);
+}

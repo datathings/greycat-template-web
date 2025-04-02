@@ -1,30 +1,23 @@
 {
-  "name": "greycat-template-web",
+  "name": "greycat-template-vite-ts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf dist",
     "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "pnpm lint:app && pnpm lint:server",
-    "lint:app": "eslint frontend/common frontend/components frontend/pages -c ./.eslintrc.cjs --report-unused-disable-directives --max-warnings 0",
-    "lint:server": "greycat-lang lint",
-    "gen": "greycat codegen frontend/common/project"
+    "gen": "greycat codegen",
+    "build": "tsc && vite build"
   },
   "dependencies": {
-    "@greycat/web": "TODO"
+    "@greycat/web": "https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz"
   },
   "devDependencies": {
-    "@eslint/js": "9.17.0",
-    "@types/node": "22.10.2",
-    "@typescript-eslint/eslint-plugin": "8.18.1",
-    "@typescript-eslint/parser": "8.18.1",
-    "eslint": "9.17.0",
-    "eslint-config-prettier": "9.1.0",
-    "http-proxy": "1.18.1",
-    "prettier": "3.4.2",
-    "typescript": "5.7.2",
-    "vite": "6.0.5"
+    "typescript": "5.8.2",
+    "vite": "6.2.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

@@ -1,0 +1,13 @@
+:host {
+  display: contents;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 4);
+}
+
+.app-main {
+  overflow: auto;
+}

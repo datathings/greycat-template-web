@@ -1,0 +1,4 @@
+@test
+fn example_test() {
+  Assert::equals(add(40, 2), 42);
+}

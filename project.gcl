@@ -1,2 +1,5 @@
-@include("backend/src");
-@include("backend/test");
+@library("std", "7.0.1739-testing");
+@library("explorer", "7.0.12-testing");
+
+@include("src");
+@include("test");

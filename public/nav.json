@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Index",
+    "route": ""
+  },
+  {
+    "label": "Example",
+    "route": "example/",
+    "link": true,
+    "children": [
+      {
+        "label": "Nested",
+        "route": "nested/"
+      }
+    ]
+  }
+]

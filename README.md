@@ -1,38 +1,28 @@
 # web
 
-A GreyCat Web application template.
+## Install
+```sh
+pnpm i
+```
 
-## Run
-- Backend:
-  ```bash
-  greycat init --root_pass=changeme
-  greycat serve
-  ```
-- Frontend:
-  ```bash
-  pnpm install
-  pnpm dev
-  ```
+## GreyCat
+Ensure the `@library` versions are what you are expecting in `project.gcl` and then:
+```sh
+greycat install
+```
 
-## Changes before development
-- Ensure the versions are updated in `package.json`, mainly for `@greycat/web`
-- This template application uses `app-` as a WebComponent namespace placeholder.
-  Make sure to update it (or not) to whatever makes more sense for you. *(For instance, the GreyCat Explorer namespaces its WebComponents to `xp-` for "xplorer")*
+## Dev
+Start GreyCat in one terminal:
+```sh
+greycat serve --user=1
+```
+...and Vite.js dev server in another:
+```sh
+pnpm dev
+```
+Open [http://localhost:5173](http://localhost:5173)
 
-## Things to know
-- This template is an MPA (Multi Pages Application) that uses HTML/CSS/TypeScript and GreyCat Web.
-  It gives you the ability to develop your Web components using TSX by providing a custom-made jsx-runtime that transpiles to native DOM elements. *(To learn more about `@greycat/web` refer to its documentation)*
-- Make sure to import the Web Component file before using it, as Web Component have to define themselves before being used:
-  ```tsx
-  import './app-component'; // this line is important
-
-  app.main.replaceChildren(<app-component />);
-  ```
-
-## npm scripts
-- `clean`: deletes the webapp build directory
-- `build`: build the webapp using Vite.js
-- `dev`: starts the webapp dev server using Vite.js
-- `lint`: lints the webapp & the server app
-- `gen`: generates the TypeScript bindings from `project.gcl` into `common/project`
-- `test`: runs GreyCat's test runner
+## Build
+```sh
+pnpm build
+```
