@@ -29,6 +29,7 @@ dist-ssr
 /lib
 /bin
 /webroot
+/project.d.ts
 
 # Vite
 /dist
