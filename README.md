@@ -5,14 +5,9 @@
   - `@library("std", REQUIRED_VERSION);`
   - `@library("explorer", REQUIRED_VERSION);`
 - Update the version of `@greycat/web` in `package.json`:
-  - `"@greycat/web": "https://get.greycat.io/files/sdk/web/testing/<MAJOR_MINOR>/<VERSION>.tgz"`
+  - `"@greycat/web": "https://get.greycat.io/files/sdk/web/<BRANCH>/<MAJOR.MINOR>/<MAJOR.MINOR.PATCH-BRANCH>.tgz"`
 
 > To find the latest versions of the libraries go to [get.greycat.io](https://get.greycat.io)
-
-## Install
-```sh
-
-```
 
 ## Installation & Initialization
 
