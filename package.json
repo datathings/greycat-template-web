@@ -9,7 +9,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@greycat/web": "https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz"
+    "@greycat/web": "https://get.greycat.io/files/sdk/web/testing/7.0/7.0.44-testing.tgz"
   },
   "devDependencies": {
     "typescript": "5.8.2",

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@greycat/web':
-        specifier: https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz
-        version: https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz(@floating-ui/utils@0.2.9)(@types/react@19.0.12)
+        specifier: https://get.greycat.io/files/sdk/web/testing/7.0/7.0.44-testing.tgz
+        version: https://get.greycat.io/files/sdk/web/testing/7.0/7.0.44-testing.tgz(@floating-ui/utils@0.2.9)(@types/react@19.0.12)
     devDependencies:
       typescript:
         specifier: 5.8.2
@@ -184,9 +184,9 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
-  '@greycat/web@https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz':
-    resolution: {tarball: https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz}
-    version: 7.0.21-testing
+  '@greycat/web@https://get.greycat.io/files/sdk/web/testing/7.0/7.0.44-testing.tgz':
+    resolution: {tarball: https://get.greycat.io/files/sdk/web/testing/7.0/7.0.44-testing.tgz}
+    version: 7.0.44-testing
 
   '@lit-labs/ssr-dom-shim@1.3.0':
     resolution: {integrity: sha512-nQIWonJ6eFAvUUrSlwyHDm/aE8PBDu5kRpL0vHMg6K8fK3Diq1xdPjTnsJSwxABhaZ+5eBi1btQB5ShUTKo4nQ==}
@@ -810,7 +810,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@greycat/web@https://get.greycat.io/files/sdk/web/testing/7.0/7.0.21-testing.tgz(@floating-ui/utils@0.2.9)(@types/react@19.0.12)':
+  '@greycat/web@https://get.greycat.io/files/sdk/web/testing/7.0/7.0.44-testing.tgz(@floating-ui/utils@0.2.9)(@types/react@19.0.12)':
     dependencies:
       '@shoelace-style/shoelace': 2.20.0(@floating-ui/utils@0.2.9)(@types/react@19.0.12)
       d3: 7.9.0

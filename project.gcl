@@ -1,5 +1,5 @@
-@library("std", "7.0.1739-testing");
-@library("explorer", "7.0.12-testing");
+@library("std", "7.0.1850-testing");
+@library("explorer", "7.0.13-testing");
 
 @include("src");
 @include("test");
